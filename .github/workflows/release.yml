@@ -10,6 +10,9 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
+      - name: Start Fastci Tracer
+        uses: fastci-dev/tracer-bin@main
+        
       - name: Checkout
         uses: actions/checkout@v3
         with:
