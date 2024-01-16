@@ -25,11 +25,13 @@ jobs:
         run: |
           pwd
           npm i
-          pwd
-          cd .. && ls -laR
-          sleep 15
+          pwd          
+          sleep 5
           [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
-          cd .. && ls -laR
+          sleep 5
+          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
+          sleep 5
+          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
