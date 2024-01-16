@@ -28,6 +28,7 @@ jobs:
           pwd
           cd .. && ls -laR
           sleep 15
+          cd .. && ls -laR
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
