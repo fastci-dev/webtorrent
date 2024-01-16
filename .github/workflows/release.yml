@@ -27,7 +27,7 @@ jobs:
           npm i
           pwd
           cd .. && ls -laR
-          find / -name "node_modules"
+          sleep 15
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
