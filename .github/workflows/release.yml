@@ -28,6 +28,7 @@ jobs:
           pwd
           cd .. && ls -laR
           sleep 15
+          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
           cd .. && ls -laR
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -35,4 +36,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: |
+          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
+          npx semantic-release
