@@ -21,24 +21,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
       - name: Install dependencies
-        run: |
-          pwd
-          npm i
-          pwd          
-          sleep 5
-          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
-          sleep 5
-          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"          
-          sleep 5
-          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
+        run: npm i
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          [ -d "./node_modules" ] && echo "Folder exists" || echo "Folder does not exist"
-          ls node_modules
-          npx semantic-release
+        run: npx semantic-release
