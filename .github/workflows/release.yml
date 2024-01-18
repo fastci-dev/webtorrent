@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm i
-          sleep 5
+          sleep 10
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
