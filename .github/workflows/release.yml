@@ -30,8 +30,10 @@ jobs:
             ${{ runner.os }}-npm-
       - name: Install dependencies
         run: |
-          npm i
+          npm i -lct
+          ls
           sleep 10
+          ls -lct
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
