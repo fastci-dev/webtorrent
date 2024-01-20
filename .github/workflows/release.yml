@@ -32,8 +32,6 @@ jobs:
         run: |
           npm i
           ls -lct
-          sleep 10
-          ls -lct
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
